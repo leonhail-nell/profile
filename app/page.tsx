@@ -1,19 +1,19 @@
 "use client";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import PortfolioSlide from "./components/PortfolioSlide";
 import AboutSlide from "./components/AboutSlide";
 import ContactSlide from "./components/ContactSlide";
+import PortfolioSlide from "./components/PortfolioSlide";
 
 const SLIDES = [
   { key: "portfolio", label: "Portfolio", component: <PortfolioSlide /> },
@@ -63,7 +63,10 @@ export default function ProfilePage() {
           width: "100%",
           maxWidth: { xs: 440, sm: 720, md: 960, lg: 1100 },
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", md: "minmax(0, 0.85fr) minmax(0, 1fr)" },
+          gridTemplateColumns: {
+            xs: "1fr",
+            md: "minmax(0, 0.85fr) minmax(0, 1fr)",
+          },
           gap: { xs: 3, md: 5, lg: 6 },
           alignItems: "center",
           zIndex: 2,
@@ -89,7 +92,7 @@ export default function ProfilePage() {
           >
             <Image
               src="/profile.jpg"
-              alt="Leon Hailpaypa"
+              alt="Leonhail Paypa"
               fill
               priority
               sizes="(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"
@@ -136,7 +139,11 @@ export default function ProfilePage() {
                 },
               }}
             >
-              {liked ? <FavoriteIcon sx={{ fontSize: 18 }} /> : <FavoriteBorderIcon sx={{ fontSize: 18 }} />}
+              {liked ? (
+                <FavoriteIcon sx={{ fontSize: 18 }} />
+              ) : (
+                <FavoriteBorderIcon sx={{ fontSize: 18 }} />
+              )}
             </IconButton>
 
             {/* Name overlay — bottom of photo */}
@@ -150,7 +157,14 @@ export default function ProfilePage() {
                 color: "#fff",
               }}
             >
-              <Box sx={{ display: "flex", alignItems: "center", gap: 0.6, mb: 0.5 }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 0.6,
+                  mb: 0.5,
+                }}
+              >
                 <Typography
                   sx={{
                     fontSize: { xs: 22, md: 26 },
@@ -160,9 +174,11 @@ export default function ProfilePage() {
                     textShadow: "0 2px 16px rgba(0,0,0,0.3)",
                   }}
                 >
-                  Leon Hailpaypa
+                  Leonhail Paypa
                 </Typography>
-                <VerifiedIcon sx={{ fontSize: 18, color: "rgba(255,255,255,0.95)" }} />
+                <VerifiedIcon
+                  sx={{ fontSize: 18, color: "rgba(255,255,255,0.95)" }}
+                />
               </Box>
               <Typography
                 sx={{
@@ -172,7 +188,7 @@ export default function ProfilePage() {
                   textShadow: "0 2px 12px rgba(0,0,0,0.3)",
                 }}
               >
-                Full-Stack Developer · Designer
+                Software Engineer · Designer
               </Typography>
             </Box>
           </Box>
@@ -197,7 +213,14 @@ export default function ProfilePage() {
             }}
           >
             {/* Header — eyebrow + small stat */}
-            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                mb: 2,
+              }}
+            >
               <Typography
                 sx={{
                   fontSize: 10,
@@ -218,7 +241,13 @@ export default function ProfilePage() {
                     boxShadow: "0 0 0 3px rgba(62,207,142,0.2)",
                   }}
                 />
-                <Typography sx={{ fontSize: 11, fontWeight: 600, color: "rgba(0,0,0,0.65)" }}>
+                <Typography
+                  sx={{
+                    fontSize: 11,
+                    fontWeight: 600,
+                    color: "rgba(0,0,0,0.65)",
+                  }}
+                >
                   Available for work
                 </Typography>
               </Box>
@@ -234,8 +263,8 @@ export default function ProfilePage() {
                 fontWeight: 400,
               }}
             >
-              I design and build refined digital products with a focus on motion,
-              clarity, and considered detail.
+              I design and build refined digital products with a focus on
+              motion, clarity, and considered detail.
             </Typography>
 
             {/* Tab navigation */}
@@ -264,8 +293,7 @@ export default function ProfilePage() {
                     color: activeSlide === i ? "#fff" : "rgba(0,0,0,0.6)",
                     bgcolor: activeSlide === i ? "#1a1a1a" : "transparent",
                     transition: "all 0.25s ease",
-                    "&:hover":
-                      activeSlide !== i ? { color: "#1a1a1a" } : {},
+                    "&:hover": activeSlide !== i ? { color: "#1a1a1a" } : {},
                   }}
                 >
                   {s.label}
@@ -300,7 +328,9 @@ export default function ProfilePage() {
                 borderTop: "1px solid rgba(0,0,0,0.08)",
               }}
             >
-              <Typography sx={{ fontSize: 11, color: "rgba(0,0,0,0.5)", fontWeight: 500 }}>
+              <Typography
+                sx={{ fontSize: 11, color: "rgba(0,0,0,0.5)", fontWeight: 500 }}
+              >
                 Connect
               </Typography>
               <Box sx={{ display: "flex", gap: 0.6 }}>
