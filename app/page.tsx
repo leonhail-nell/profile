@@ -7,6 +7,7 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import VerifiedIcon from "@mui/icons-material/Verified";
 import Image from "next/image";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -32,228 +33,332 @@ export default function ProfilePage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        p: { xs: 2, sm: 3, md: 4 },
+        p: { xs: 2.5, sm: 4, md: 6 },
         overflow: "hidden",
-        background: "linear-gradient(180deg, #ebe8e3 0%, #d8d4cd 100%)",
+        background:
+          "radial-gradient(ellipse at top left, #f4f1ec 0%, #ebe7df 50%, #ddd6cb 100%)",
       }}
     >
-      {/* Floor / counter shadow */}
+      {/* Single accent — soft tonal blob top-right */}
       <Box
         sx={{
           position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          height: "22%",
-          background: "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.08) 100%)",
+          top: "-15%",
+          right: "-10%",
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(180,160,130,0.25) 0%, transparent 70%)",
+          filter: "blur(60px)",
           zIndex: 0,
+          display: { xs: "none", sm: "block" },
         }}
       />
 
-      {/* Scene */}
+      {/* Main container — proper grid */}
       <Box
         sx={{
           position: "relative",
           width: "100%",
-          maxWidth: { xs: 420, sm: 560, md: 760, lg: 960 },
-          minHeight: { xs: "calc(100vh - 32px)", sm: 720, md: 760 },
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
+          maxWidth: { xs: 440, sm: 720, md: 960, lg: 1100 },
+          display: "grid",
+          gridTemplateColumns: { xs: "1fr", md: "minmax(0, 0.85fr) minmax(0, 1fr)" },
+          gap: { xs: 3, md: 5, lg: 6 },
           alignItems: "center",
-          justifyContent: "center",
-          gap: { xs: 2, sm: 0 },
-          py: { xs: 2, sm: 0 },
           zIndex: 2,
         }}
       >
-        {/* Black arch — left wing */}
-        <Box
-          sx={{
-            position: "absolute",
-            left: { xs: "-12%", sm: "-2%", md: "4%" },
-            top: { xs: "8%", sm: "30%" },
-            width: { xs: 70, sm: 130, md: 160 },
-            height: { xs: 160, sm: 260, md: 320 },
-            bgcolor: "#1a1a1a",
-            borderRadius: "0 200px 200px 0",
-            zIndex: 1,
-            opacity: { xs: 0.85, sm: 1 },
-          }}
-        />
-        {/* Black arch — right wing */}
-        <Box
-          sx={{
-            position: "absolute",
-            right: { xs: "-12%", sm: "-2%", md: "4%" },
-            top: { xs: "8%", sm: "30%" },
-            width: { xs: 70, sm: 130, md: 160 },
-            height: { xs: 160, sm: 260, md: 320 },
-            bgcolor: "#1a1a1a",
-            borderRadius: "200px 0 0 200px",
-            zIndex: 1,
-            opacity: { xs: 0.85, sm: 1 },
-          }}
-        />
-
-        {/* Side card peeking left — hidden on small mobile, shown sm+ */}
+        {/* LEFT — Portrait card */}
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          style={{
-            position: "absolute",
-            left: 0,
-            top: "12%",
-            zIndex: 3,
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <Box
             sx={{
-              display: { xs: "none", sm: "block" },
-              width: { sm: 110, md: 140 },
-              height: { sm: 160, md: 200 },
-              borderRadius: "0 16px 16px 0",
-              background: "rgba(255,255,255,0.85)",
-              backdropFilter: "blur(20px)",
-              border: "1px solid rgba(255,255,255,0.6)",
-              borderLeft: "none",
-              boxShadow: "8px 8px 24px rgba(0,0,0,0.06)",
+              position: "relative",
+              width: "100%",
+              aspectRatio: { xs: "4 / 5", md: "3 / 4" },
+              maxHeight: { md: 640 },
+              borderRadius: { xs: 4, md: 5 },
+              overflow: "hidden",
+              boxShadow:
+                "0 30px 60px -20px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.18)",
             }}
-          />
+          >
+            <Image
+              src="/profile.jpg"
+              alt="Leon Hailpaypa"
+              fill
+              priority
+              sizes="(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"
+              style={{
+                objectFit: "cover",
+                objectPosition: "55% 25%",
+                transform: "scale(1.15)",
+                transformOrigin: "center 30%",
+              }}
+            />
+
+            {/* Subtle gradient at bottom for depth */}
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: "30%",
+                background:
+                  "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.35) 100%)",
+                pointerEvents: "none",
+              }}
+            />
+
+            {/* Like button — refined glass */}
+            <IconButton
+              onClick={() => setLiked(!liked)}
+              sx={{
+                position: "absolute",
+                top: 16,
+                right: 16,
+                width: 38,
+                height: 38,
+                background: "rgba(255,255,255,0.18)",
+                backdropFilter: "blur(20px) saturate(180%)",
+                WebkitBackdropFilter: "blur(20px) saturate(180%)",
+                border: "1px solid rgba(255,255,255,0.3)",
+                color: liked ? "#ff5577" : "#fff",
+                transition: "all 0.25s ease",
+                "&:hover": {
+                  background: "rgba(255,255,255,0.3)",
+                  transform: "scale(1.05)",
+                },
+              }}
+            >
+              {liked ? <FavoriteIcon sx={{ fontSize: 18 }} /> : <FavoriteBorderIcon sx={{ fontSize: 18 }} />}
+            </IconButton>
+
+            {/* Name overlay — bottom of photo */}
+            <Box
+              sx={{
+                position: "absolute",
+                bottom: 0,
+                left: 0,
+                right: 0,
+                p: { xs: 2.5, md: 3 },
+                color: "#fff",
+              }}
+            >
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.6, mb: 0.5 }}>
+                <Typography
+                  sx={{
+                    fontSize: { xs: 22, md: 26 },
+                    fontWeight: 700,
+                    letterSpacing: -0.5,
+                    lineHeight: 1.1,
+                    textShadow: "0 2px 16px rgba(0,0,0,0.3)",
+                  }}
+                >
+                  Leon Hailpaypa
+                </Typography>
+                <VerifiedIcon sx={{ fontSize: 18, color: "rgba(255,255,255,0.95)" }} />
+              </Box>
+              <Typography
+                sx={{
+                  fontSize: { xs: 12, md: 13 },
+                  color: "rgba(255,255,255,0.85)",
+                  letterSpacing: 0.5,
+                  textShadow: "0 2px 12px rgba(0,0,0,0.3)",
+                }}
+              >
+                Full-Stack Developer · Designer
+              </Typography>
+            </Box>
+          </Box>
         </motion.div>
 
-        {/* Mirror / photo card — full photo, no overlays on top */}
-        <Box
-          sx={{
-            position: { xs: "relative", sm: "relative" },
-            width: { xs: "88%", sm: 320, md: 380 },
-            height: { xs: 460, sm: 620, md: 680 },
-            maxHeight: { xs: 460, md: 720 },
-            borderRadius: { xs: 5, md: 6 },
-            overflow: "hidden",
-            zIndex: 3,
-            boxShadow: "0 30px 60px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.4)",
-            flexShrink: 0,
-          }}
+        {/* RIGHT — Content panel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Image
-            src="/profile.jpg"
-            alt="Leon Hailpaypa"
-            fill
-            priority
-            sizes="(max-width: 600px) 88vw, (max-width: 900px) 320px, 380px"
-            style={{
-              objectFit: "cover",
-              objectPosition: "55% 25%",
-              transform: "scale(1.25)",
-              transformOrigin: "center 30%",
+          <Box
+            sx={{
+              background: "rgba(255,255,255,0.5)",
+              backdropFilter: "blur(30px) saturate(180%)",
+              WebkitBackdropFilter: "blur(30px) saturate(180%)",
+              border: "1px solid rgba(255,255,255,0.7)",
+              borderRadius: { xs: 4, md: 5 },
+              p: { xs: 2.5, md: 3.5 },
+              boxShadow:
+                "0 20px 50px -20px rgba(0,0,0,0.15), 0 8px 24px -12px rgba(0,0,0,0.08)",
             }}
-          />
-        </Box>
+          >
+            {/* Header — eyebrow + small stat */}
+            <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 2 }}>
+              <Typography
+                sx={{
+                  fontSize: 10,
+                  fontWeight: 700,
+                  letterSpacing: 2,
+                  color: "rgba(0,0,0,0.5)",
+                }}
+              >
+                PROFILE
+              </Typography>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
+                <Box
+                  sx={{
+                    width: 6,
+                    height: 6,
+                    borderRadius: "50%",
+                    bgcolor: "#3ecf8e",
+                    boxShadow: "0 0 0 3px rgba(62,207,142,0.2)",
+                  }}
+                />
+                <Typography sx={{ fontSize: 11, fontWeight: 600, color: "rgba(0,0,0,0.65)" }}>
+                  Available for work
+                </Typography>
+              </Box>
+            </Box>
 
-        {/* Glass info panel — stacked below on mobile, floating on tablet/desktop */}
-        <Box
-          sx={{
-            position: { xs: "relative", sm: "absolute" },
-            bottom: { sm: -12, md: 20 },
-            right: { sm: 0, md: "8%" },
-            width: { xs: "92%", sm: 280, md: 320 },
-            zIndex: 6,
-            background: "rgba(255,255,255,0.6)",
-            backdropFilter: "blur(30px) saturate(180%)",
-            WebkitBackdropFilter: "blur(30px) saturate(180%)",
-            border: "1px solid rgba(255,255,255,0.7)",
-            borderRadius: { xs: 4, md: 5 },
-            p: { xs: 1.6, md: 2 },
-            boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
-          }}
-        >
-          {/* Tab header */}
-          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 1.5 }}>
-            <Box sx={{ display: "flex", gap: 0.4 }}>
+            {/* Bio */}
+            <Typography
+              sx={{
+                fontSize: { xs: 14, md: 15 },
+                color: "rgba(0,0,0,0.78)",
+                lineHeight: 1.6,
+                mb: 3,
+                fontWeight: 400,
+              }}
+            >
+              I design and build refined digital products with a focus on motion,
+              clarity, and considered detail.
+            </Typography>
+
+            {/* Tab navigation */}
+            <Box
+              sx={{
+                display: "flex",
+                gap: 0.4,
+                mb: 2.5,
+                p: 0.4,
+                background: "rgba(0,0,0,0.04)",
+                borderRadius: 2,
+                width: "fit-content",
+              }}
+            >
               {SLIDES.map((s, i) => (
                 <Box
                   key={s.key}
                   onClick={() => setActiveSlide(i)}
                   sx={{
-                    px: { xs: 1, md: 1.2 },
-                    py: 0.5,
+                    px: { xs: 1.6, md: 2 },
+                    py: 0.7,
                     borderRadius: 1.5,
-                    fontSize: { xs: 10, md: 11 },
-                    fontWeight: 700,
+                    fontSize: { xs: 11, md: 12 },
+                    fontWeight: 600,
                     cursor: "pointer",
-                    color: activeSlide === i ? "#fff" : "rgba(0,0,0,0.5)",
+                    color: activeSlide === i ? "#fff" : "rgba(0,0,0,0.6)",
                     bgcolor: activeSlide === i ? "#1a1a1a" : "transparent",
                     transition: "all 0.25s ease",
-                    "&:hover": activeSlide !== i ? { bgcolor: "rgba(0,0,0,0.06)" } : {},
+                    "&:hover":
+                      activeSlide !== i ? { color: "#1a1a1a" } : {},
                   }}
                 >
                   {s.label}
                 </Box>
               ))}
             </Box>
-            <IconButton
-              size="small"
-              onClick={() => setLiked(!liked)}
+
+            {/* Slide content */}
+            <Box sx={{ position: "relative", minHeight: { xs: 220, md: 260 } }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={SLIDES[activeSlide].key}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -6 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {SLIDES[activeSlide].component}
+                </motion.div>
+              </AnimatePresence>
+            </Box>
+
+            {/* Footer — socials */}
+            <Box
               sx={{
-                width: 28,
-                height: 28,
-                bgcolor: liked ? "#1a1a1a" : "rgba(0,0,0,0.05)",
-                color: liked ? "#fff" : "#1a1a1a",
-                "&:hover": { bgcolor: liked ? "#000" : "rgba(0,0,0,0.1)" },
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 1,
+                mt: 3,
+                pt: 2.5,
+                borderTop: "1px solid rgba(0,0,0,0.08)",
               }}
             >
-              {liked ? <FavoriteIcon sx={{ fontSize: 14 }} /> : <FavoriteBorderIcon sx={{ fontSize: 14 }} />}
-            </IconButton>
+              <Typography sx={{ fontSize: 11, color: "rgba(0,0,0,0.5)", fontWeight: 500 }}>
+                Connect
+              </Typography>
+              <Box sx={{ display: "flex", gap: 0.6 }}>
+                <IconButton
+                  component="a"
+                  href="https://github.com"
+                  target="_blank"
+                  size="small"
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    bgcolor: "rgba(0,0,0,0.04)",
+                    borderRadius: 1.5,
+                    color: "#1a1a1a",
+                    transition: "all 0.2s",
+                    "&:hover": { bgcolor: "#1a1a1a", color: "#fff" },
+                  }}
+                >
+                  <GitHubIcon sx={{ fontSize: 15 }} />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="https://linkedin.com"
+                  target="_blank"
+                  size="small"
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    bgcolor: "rgba(0,0,0,0.04)",
+                    borderRadius: 1.5,
+                    color: "#1a1a1a",
+                    transition: "all 0.2s",
+                    "&:hover": { bgcolor: "#1a1a1a", color: "#fff" },
+                  }}
+                >
+                  <LinkedInIcon sx={{ fontSize: 15 }} />
+                </IconButton>
+                <IconButton
+                  component="a"
+                  href="https://twitter.com"
+                  target="_blank"
+                  size="small"
+                  sx={{
+                    width: 32,
+                    height: 32,
+                    bgcolor: "rgba(0,0,0,0.04)",
+                    borderRadius: 1.5,
+                    color: "#1a1a1a",
+                    transition: "all 0.2s",
+                    "&:hover": { bgcolor: "#1a1a1a", color: "#fff" },
+                  }}
+                >
+                  <TwitterIcon sx={{ fontSize: 15 }} />
+                </IconButton>
+              </Box>
+            </Box>
           </Box>
-
-          {/* Slide content */}
-          <Box sx={{ position: "relative", minHeight: { xs: 200, md: 220 } }}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={SLIDES[activeSlide].key}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-              >
-                {SLIDES[activeSlide].component}
-              </motion.div>
-            </AnimatePresence>
-          </Box>
-
-          {/* Social row */}
-          <Box sx={{ display: "flex", gap: 0.5, mt: 1.5, pt: 1.5, borderTop: "1px solid rgba(0,0,0,0.06)" }}>
-            <IconButton
-              component="a"
-              href="https://github.com"
-              target="_blank"
-              size="small"
-              sx={{ width: 28, height: 28, bgcolor: "rgba(0,0,0,0.05)", borderRadius: 1.5, color: "#1a1a1a", "&:hover": { bgcolor: "rgba(0,0,0,0.1)" } }}
-            >
-              <GitHubIcon sx={{ fontSize: 14 }} />
-            </IconButton>
-            <IconButton
-              component="a"
-              href="https://linkedin.com"
-              target="_blank"
-              size="small"
-              sx={{ width: 28, height: 28, bgcolor: "rgba(0,0,0,0.05)", borderRadius: 1.5, color: "#1a1a1a", "&:hover": { bgcolor: "rgba(0,0,0,0.1)" } }}
-            >
-              <LinkedInIcon sx={{ fontSize: 14 }} />
-            </IconButton>
-            <IconButton
-              component="a"
-              href="https://twitter.com"
-              target="_blank"
-              size="small"
-              sx={{ width: 28, height: 28, bgcolor: "rgba(0,0,0,0.05)", borderRadius: 1.5, color: "#1a1a1a", "&:hover": { bgcolor: "rgba(0,0,0,0.1)" } }}
-            >
-              <TwitterIcon sx={{ fontSize: 14 }} />
-            </IconButton>
-          </Box>
-        </Box>
-
+        </motion.div>
       </Box>
     </Box>
   );
