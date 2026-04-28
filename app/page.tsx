@@ -263,8 +263,9 @@ export default function ProfilePage() {
                 fontWeight: 400,
               }}
             >
-              I design and build refined digital products with a focus on
-              motion, clarity, and considered detail.
+              Experienced Web Developer with a demonstrated history of working
+              in the computer software industry. Skilled in Vue.js, React.js,
+              Typescript, Computer Literacy, PHP, HTML, and Laravel.
             </Typography>
 
             {/* Tab navigation */}
@@ -276,7 +277,7 @@ export default function ProfilePage() {
                 p: 0.4,
                 background: "rgba(0,0,0,0.04)",
                 borderRadius: 2,
-                width: "fit-content",
+                width: "100%",
               }}
             >
               {SLIDES.map((s, i) => (
