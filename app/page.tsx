@@ -90,7 +90,13 @@ export default function ProfilePage() {
                 "0 30px 60px -20px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.18)",
             }}
           >
-            {liked ? (
+            {/* Crossfade between default and liked photo */}
+            <motion.div
+              initial={false}
+              animate={{ opacity: liked ? 0 : 1 }}
+              transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+              style={{ position: "absolute", inset: 0, opacity: 1 }}
+            >
               <Image
                 src="/profile.jpg"
                 alt="Leonhail Paypa"
@@ -104,12 +110,17 @@ export default function ProfilePage() {
                   transformOrigin: "center 30%",
                 }}
               />
-            ) : (
+            </motion.div>
+            <motion.div
+              initial={false}
+              animate={{ opacity: liked ? 1 : 0 }}
+              transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+              style={{ position: "absolute", inset: 0, opacity: 0 }}
+            >
               <Image
-                src="/profile.jpg" // this will be replaced with a different image when liked, simulating a "before and after" effect
-                alt="Leonhail Paypa"
+                src="/profile-liked.jpg"
+                alt="Leonhail Paypa — liked"
                 fill
-                priority
                 sizes="(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"
                 style={{
                   objectFit: "cover",
@@ -118,7 +129,7 @@ export default function ProfilePage() {
                   transformOrigin: "center 30%",
                 }}
               />
-            )}
+            </motion.div>
 
             {/* Subtle gradient at bottom for depth */}
             <Box
