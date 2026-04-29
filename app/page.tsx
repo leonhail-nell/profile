@@ -106,7 +106,12 @@ export default function ProfilePage() {
                 style={{
                   objectFit: "cover",
                   objectPosition: "55% 25%",
-                  transform: "scale(1.15)",
+                  // Body center in this photo sits at ~(45.4%, 64.7%) of the
+                  // image, vs (48.5%, 62.5%) in profile-liked.jpg. Translate
+                  // this image so its body aligns with the smiling photo's
+                  // body, then the crossfade reads as the head turning to
+                  // smile rather than the whole frame jumping.
+                  transform: "translate(3.5%, -2.5%) scale(1.15)",
                   transformOrigin: "center 30%",
                 }}
               />
