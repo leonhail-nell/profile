@@ -3,12 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
-
-const projects = [
-  { title: "Glass Dashboard", tag: "Next.js · MUI", color: "#e8c5a0" },
-  { title: "AI Profile Builder", tag: "TypeScript · OpenAI", color: "#c5d4e8" },
-  { title: "Motion Studio", tag: "Framer · WebGL", color: "#d4c5e8" },
-];
+import { Projects } from "../constant/profile";
 
 export default function PortfolioSlide() {
   const theme = useTheme();
@@ -28,7 +23,7 @@ export default function PortfolioSlide() {
         FEATURED WORK
       </Typography>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 0.8 }}>
-        {projects.map((p, i) => (
+        {Projects.map((p, i) => (
           <motion.div
             key={p.title}
             initial={{ opacity: 0, x: -10 }}
@@ -44,7 +39,9 @@ export default function PortfolioSlide() {
                 gap: 1.2,
                 p: 1,
                 borderRadius: 2.5,
-                background: d ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.6)",
+                background: d
+                  ? "rgba(255,255,255,0.06)"
+                  : "rgba(255,255,255,0.6)",
                 backdropFilter: "blur(20px)",
                 border: d
                   ? "1px solid rgba(255,255,255,0.08)"
@@ -54,7 +51,9 @@ export default function PortfolioSlide() {
                 color: "inherit",
                 transition: "all 0.25s ease",
                 "&:hover": {
-                  background: d ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.85)",
+                  background: d
+                    ? "rgba(255,255,255,0.12)"
+                    : "rgba(255,255,255,0.85)",
                   transform: "translateX(2px)",
                 },
               }}
@@ -91,7 +90,10 @@ export default function PortfolioSlide() {
                 </Typography>
               </Box>
               <Typography
-                sx={{ fontSize: 14, color: d ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)" }}
+                sx={{
+                  fontSize: 14,
+                  color: d ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)",
+                }}
               >
                 →
               </Typography>
