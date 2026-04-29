@@ -1,7 +1,6 @@
 "use client";
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
@@ -10,10 +9,14 @@ const theme = createTheme({
     background: { default: "#f0ede8" },
   },
   typography: { fontFamily: "inherit" },
-  shape: { borderRadius: 16 },
+  shape: { borderRadius: 4 },
 });
 
-export default function MuiProvider({ children }: { children: React.ReactNode }) {
+export default function MuiProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />

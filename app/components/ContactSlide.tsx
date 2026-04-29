@@ -1,22 +1,45 @@
 "use client";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import PhoneIcon from "@mui/icons-material/Phone";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const contacts = [
-  { icon: <EmailIcon sx={{ fontSize: 14 }} />, label: "Email", value: "leon@profile.dev", href: "mailto:leon@profile.dev" },
-  { icon: <PhoneIcon sx={{ fontSize: 14 }} />, label: "Phone", value: "+1 (555) 012-3456", href: "tel:+15550123456" },
-  { icon: <LocationOnIcon sx={{ fontSize: 14 }} />, label: "Based in", value: "San Francisco, CA", href: "#" },
+  {
+    icon: <EmailIcon sx={{ fontSize: 14 }} />,
+    label: "Email",
+    value: "leonhaipaypa27@gmail.com",
+    href: "mailto:leonhaipaypa27@gmail.com",
+  },
+  {
+    icon: <PhoneIcon sx={{ fontSize: 14 }} />,
+    label: "Phone",
+    value: "+63 956 409 5011",
+    href: "tel:+639564095011",
+  },
+  {
+    icon: <LocationOnIcon sx={{ fontSize: 14 }} />,
+    label: "Based in",
+    value: "San Francisco, Panabo City, Davao del Norte",
+    href: "#",
+  },
 ];
 
 export default function ContactSlide() {
   return (
     <Box>
-      <Typography sx={{ fontSize: 10, fontWeight: 700, color: "rgba(0,0,0,0.5)", mb: 1.2, letterSpacing: 1.5 }}>
+      <Typography
+        sx={{
+          fontSize: 10,
+          fontWeight: 700,
+          color: "rgba(0,0,0,0.5)",
+          mb: 1.2,
+          letterSpacing: 1.5,
+        }}
+      >
         GET IN TOUCH
       </Typography>
 
@@ -61,10 +84,27 @@ export default function ContactSlide() {
                 {c.icon}
               </Box>
               <Box sx={{ flex: 1, minWidth: 0 }}>
-                <Typography sx={{ fontSize: 9, color: "rgba(0,0,0,0.5)", letterSpacing: 0.5, lineHeight: 1 }}>
+                <Typography
+                  sx={{
+                    fontSize: 9,
+                    color: "rgba(0,0,0,0.5)",
+                    letterSpacing: 0.5,
+                    lineHeight: 1,
+                  }}
+                >
                   {c.label.toUpperCase()}
                 </Typography>
-                <Typography sx={{ fontSize: 11, fontWeight: 600, color: "#1a1a1a", lineHeight: 1.3, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                <Typography
+                  sx={{
+                    fontSize: 11,
+                    fontWeight: 600,
+                    color: "#1a1a1a",
+                    lineHeight: 1.3,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
                   {c.value}
                 </Typography>
               </Box>
@@ -80,7 +120,7 @@ export default function ContactSlide() {
       >
         <Box
           component="a"
-          href="mailto:leon@profile.dev"
+          href="mailto:leonhaipaypa27@gmail.com"
           sx={{
             display: "flex",
             alignItems: "center",
@@ -98,7 +138,7 @@ export default function ContactSlide() {
             "&:hover": { background: "#000", transform: "translateY(-1px)" },
           }}
         >
-          Start a Project
+          Contact Me
           <ArrowForwardIcon sx={{ fontSize: 14 }} />
         </Box>
       </motion.div>
