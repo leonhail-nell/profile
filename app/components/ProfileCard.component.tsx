@@ -1,3 +1,4 @@
+"use client";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import VerifiedIcon from "@mui/icons-material/Verified";
@@ -38,17 +39,26 @@ export const ProfileCard = ({ isDark = false }: { isDark?: boolean }) => {
           style={{ position: "absolute", inset: 0, opacity: 1 }}
         >
           <Image
-            src="/profile.jpg"
+            src={isDark ? "/profile-dark.png" : "/profile.jpg"}
             alt="Leonhail Paypa"
             fill
             priority
             sizes="(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"
-            style={{
-              objectFit: "cover",
-              objectPosition: "55% 25%",
-              transform: "translate(3.5%, -2.5%) scale(1.15)",
-              transformOrigin: "center 30%",
-            }}
+            style={
+              isDark
+                ? {
+                    objectFit: "cover",
+                    objectPosition: "50% 15%",
+                    transform: "scale(1.15)",
+                    transformOrigin: "center 20%",
+                  }
+                : {
+                    objectFit: "cover",
+                    objectPosition: "55% 25%",
+                    transform: "translate(3.5%, -2.5%) scale(1.15)",
+                    transformOrigin: "center 30%",
+                  }
+            }
           />
         </motion.div>
         <motion.div
@@ -58,16 +68,25 @@ export const ProfileCard = ({ isDark = false }: { isDark?: boolean }) => {
           style={{ position: "absolute", inset: 0, opacity: 0 }}
         >
           <Image
-            src="/profile-liked.jpg"
+            src={isDark ? "/profile-dark-liked.png" : "/profile-liked.jpg"}
             alt="Leonhail Paypa — liked"
             fill
-            sizes="(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"
-            style={{
-              objectFit: "cover",
-              objectPosition: "55% 25%",
-              transform: "scale(1.15)",
-              transformOrigin: "center 30%",
-            }}
+            sizes={"(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"}
+            style={
+              isDark
+                ? {
+                    objectFit: "cover",
+                    objectPosition: "50% 22%",
+                    transform: "scale(1.3)",
+                    transformOrigin: "center 25%",
+                  }
+                : {
+                    objectFit: "cover",
+                    objectPosition: "55% 25%",
+                    transform: "scale(1.15)",
+                    transformOrigin: "center 30%",
+                  }
+            }
           />
         </motion.div>
 
