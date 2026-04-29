@@ -3,14 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
-
-const stats = [
-  { value: "5+", label: "Years" },
-  { value: "40+", label: "Projects" },
-  { value: "12", label: "Awards" },
-];
-
-const skills = ["React", "Next.js", "TypeScript", "Node", "Figma"];
+import { Skills, Status } from "../constant/profile";
 
 export default function AboutSlide() {
   const theme = useTheme();
@@ -42,7 +35,7 @@ export default function AboutSlide() {
       </Typography>
 
       <Box sx={{ display: "flex", gap: 0.8, mb: 1.5 }}>
-        {stats.map((s, i) => (
+        {Status.map((s, i) => (
           <motion.div
             key={s.label}
             initial={{ opacity: 0, y: 8 }}
@@ -88,7 +81,7 @@ export default function AboutSlide() {
       </Box>
 
       <Box sx={{ display: "flex", gap: 0.5, flexWrap: "wrap" }}>
-        {skills.map((skill, i) => (
+        {Skills.map((skill, i) => (
           <motion.div
             key={skill}
             initial={{ opacity: 0, scale: 0.85 }}
