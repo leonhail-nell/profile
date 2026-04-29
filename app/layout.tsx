@@ -9,7 +9,7 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Profile",
+  title: "Leonhail Paypa",
   description: "Personal profile",
 };
 
