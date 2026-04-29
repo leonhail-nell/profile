@@ -90,19 +90,35 @@ export default function ProfilePage() {
                 "0 30px 60px -20px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.18)",
             }}
           >
-            <Image
-              src="/profile.jpg"
-              alt="Leonhail Paypa"
-              fill
-              priority
-              sizes="(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"
-              style={{
-                objectFit: "cover",
-                objectPosition: "55% 25%",
-                transform: "scale(1.15)",
-                transformOrigin: "center 30%",
-              }}
-            />
+            {liked ? (
+              <Image
+                src="/profile.jpg"
+                alt="Leonhail Paypa"
+                fill
+                priority
+                sizes="(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "55% 25%",
+                  transform: "scale(1.15)",
+                  transformOrigin: "center 30%",
+                }}
+              />
+            ) : (
+              <Image
+                src="/profile.jpg" // this will be replaced with a different image when liked, simulating a "before and after" effect
+                alt="Leonhail Paypa"
+                fill
+                priority
+                sizes="(max-width: 600px) 88vw, (max-width: 900px) 88vw, 45vw"
+                style={{
+                  objectFit: "cover",
+                  objectPosition: "55% 25%",
+                  transform: "scale(1.15)",
+                  transformOrigin: "center 30%",
+                }}
+              />
+            )}
 
             {/* Subtle gradient at bottom for depth */}
             <Box
