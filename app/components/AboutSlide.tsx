@@ -1,6 +1,7 @@
 "use client";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
 const stats = [
@@ -12,13 +13,31 @@ const stats = [
 const skills = ["React", "Next.js", "TypeScript", "Node", "Figma"];
 
 export default function AboutSlide() {
+  const theme = useTheme();
+  const d = theme.palette.mode === "dark";
+
   return (
     <Box>
-      <Typography sx={{ fontSize: 10, fontWeight: 700, color: "rgba(0,0,0,0.5)", mb: 1.2, letterSpacing: 1.5 }}>
+      <Typography
+        sx={{
+          fontSize: 10,
+          fontWeight: 700,
+          color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)",
+          mb: 1.2,
+          letterSpacing: 1.5,
+        }}
+      >
         ABOUT
       </Typography>
 
-      <Typography sx={{ fontSize: 11, color: "rgba(0,0,0,0.75)", lineHeight: 1.5, mb: 1.5 }}>
+      <Typography
+        sx={{
+          fontSize: 11,
+          color: d ? "rgba(255,255,255,0.75)" : "rgba(0,0,0,0.75)",
+          lineHeight: 1.5,
+          mb: 1.5,
+        }}
+      >
         Designer-developer crafting interfaces with motion, depth, and a touch of magic.
       </Typography>
 
@@ -35,16 +54,32 @@ export default function AboutSlide() {
               sx={{
                 p: 1,
                 borderRadius: 2,
-                background: "rgba(255,255,255,0.6)",
+                background: d ? "rgba(255,255,255,0.07)" : "rgba(255,255,255,0.6)",
                 backdropFilter: "blur(20px)",
-                border: "1px solid rgba(0,0,0,0.06)",
+                border: d
+                  ? "1px solid rgba(255,255,255,0.08)"
+                  : "1px solid rgba(0,0,0,0.06)",
                 textAlign: "center",
               }}
             >
-              <Typography sx={{ fontSize: 18, fontWeight: 800, color: "#1a1a1a", lineHeight: 1 }}>
+              <Typography
+                sx={{
+                  fontSize: 18,
+                  fontWeight: 800,
+                  color: d ? "#e8e3db" : "#1a1a1a",
+                  lineHeight: 1,
+                }}
+              >
                 {s.value}
               </Typography>
-              <Typography sx={{ fontSize: 9, color: "rgba(0,0,0,0.55)", mt: 0.2, letterSpacing: 0.5 }}>
+              <Typography
+                sx={{
+                  fontSize: 9,
+                  color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.55)",
+                  mt: 0.2,
+                  letterSpacing: 0.5,
+                }}
+              >
                 {s.label.toUpperCase()}
               </Typography>
             </Box>
@@ -65,11 +100,13 @@ export default function AboutSlide() {
                 px: 1.1,
                 py: 0.4,
                 borderRadius: 10,
-                background: "rgba(255,255,255,0.5)",
-                border: "1px solid rgba(0,0,0,0.08)",
+                background: d ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.5)",
+                border: d
+                  ? "1px solid rgba(255,255,255,0.1)"
+                  : "1px solid rgba(0,0,0,0.08)",
                 fontSize: 10,
                 fontWeight: 600,
-                color: "#1a1a1a",
+                color: d ? "#e8e3db" : "#1a1a1a",
               }}
             >
               {skill}
