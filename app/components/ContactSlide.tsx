@@ -5,6 +5,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
 const contacts = [
@@ -29,13 +30,16 @@ const contacts = [
 ];
 
 export default function ContactSlide() {
+  const theme = useTheme();
+  const d = theme.palette.mode === "dark";
+
   return (
     <Box>
       <Typography
         sx={{
           fontSize: 10,
           fontWeight: 700,
-          color: "rgba(0,0,0,0.5)",
+          color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)",
           mb: 1.2,
           letterSpacing: 1.5,
         }}
@@ -60,13 +64,17 @@ export default function ContactSlide() {
                 gap: 1,
                 p: 1,
                 borderRadius: 2,
-                background: "rgba(255,255,255,0.6)",
+                background: d ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.6)",
                 backdropFilter: "blur(20px)",
-                border: "1px solid rgba(0,0,0,0.06)",
+                border: d
+                  ? "1px solid rgba(255,255,255,0.08)"
+                  : "1px solid rgba(0,0,0,0.06)",
                 textDecoration: "none",
                 color: "inherit",
                 transition: "all 0.25s ease",
-                "&:hover": { background: "rgba(255,255,255,0.85)" },
+                "&:hover": {
+                  background: d ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.85)",
+                },
               }}
             >
               <Box
@@ -74,11 +82,11 @@ export default function ContactSlide() {
                   width: 26,
                   height: 26,
                   borderRadius: 1.5,
-                  background: "rgba(0,0,0,0.06)",
+                  background: d ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.06)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  color: "#1a1a1a",
+                  color: d ? "#e8e3db" : "#1a1a1a",
                 }}
               >
                 {c.icon}
@@ -87,7 +95,7 @@ export default function ContactSlide() {
                 <Typography
                   sx={{
                     fontSize: 9,
-                    color: "rgba(0,0,0,0.5)",
+                    color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)",
                     letterSpacing: 0.5,
                     lineHeight: 1,
                   }}
@@ -98,7 +106,7 @@ export default function ContactSlide() {
                   sx={{
                     fontSize: 11,
                     fontWeight: 600,
-                    color: "#1a1a1a",
+                    color: d ? "#e8e3db" : "#1a1a1a",
                     lineHeight: 1.3,
                     overflow: "hidden",
                     textOverflow: "ellipsis",
@@ -128,14 +136,17 @@ export default function ContactSlide() {
             gap: 0.8,
             py: 1,
             borderRadius: 2,
-            background: "#1a1a1a",
-            color: "#fff",
+            background: d ? "#e8e3db" : "#1a1a1a",
+            color: d ? "#1a1a1a" : "#fff",
             fontWeight: 700,
             fontSize: 12,
             cursor: "pointer",
             textDecoration: "none",
             transition: "all 0.25s ease",
-            "&:hover": { background: "#000", transform: "translateY(-1px)" },
+            "&:hover": {
+              background: d ? "#fff" : "#000",
+              transform: "translateY(-1px)",
+            },
           }}
         >
           Contact Me

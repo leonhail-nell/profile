@@ -1,6 +1,7 @@
 "use client";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -10,9 +11,20 @@ const projects = [
 ];
 
 export default function PortfolioSlide() {
+  const theme = useTheme();
+  const d = theme.palette.mode === "dark";
+
   return (
     <Box>
-      <Typography sx={{ fontSize: 10, fontWeight: 700, color: "rgba(0,0,0,0.5)", mb: 1.2, letterSpacing: 1.5 }}>
+      <Typography
+        sx={{
+          fontSize: 10,
+          fontWeight: 700,
+          color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.5)",
+          mb: 1.2,
+          letterSpacing: 1.5,
+        }}
+      >
         FEATURED WORK
       </Typography>
       <Box sx={{ display: "flex", flexDirection: "column", gap: 0.8 }}>
@@ -32,15 +44,17 @@ export default function PortfolioSlide() {
                 gap: 1.2,
                 p: 1,
                 borderRadius: 2.5,
-                background: "rgba(255,255,255,0.6)",
+                background: d ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.6)",
                 backdropFilter: "blur(20px)",
-                border: "1px solid rgba(0,0,0,0.06)",
+                border: d
+                  ? "1px solid rgba(255,255,255,0.08)"
+                  : "1px solid rgba(0,0,0,0.06)",
                 cursor: "pointer",
                 textDecoration: "none",
                 color: "inherit",
                 transition: "all 0.25s ease",
                 "&:hover": {
-                  background: "rgba(255,255,255,0.85)",
+                  background: d ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.85)",
                   transform: "translateX(2px)",
                 },
               }}
@@ -52,17 +66,35 @@ export default function PortfolioSlide() {
                   borderRadius: 1.5,
                   bgcolor: p.color,
                   flexShrink: 0,
+                  opacity: d ? 0.85 : 1,
                 }}
               />
               <Box sx={{ flex: 1, minWidth: 0 }}>
-                <Typography sx={{ fontSize: 12, fontWeight: 700, color: "#1a1a1a", lineHeight: 1.1 }}>
+                <Typography
+                  sx={{
+                    fontSize: 12,
+                    fontWeight: 700,
+                    color: d ? "#e8e3db" : "#1a1a1a",
+                    lineHeight: 1.1,
+                  }}
+                >
                   {p.title}
                 </Typography>
-                <Typography sx={{ fontSize: 10, color: "rgba(0,0,0,0.55)", mt: 0.2 }}>
+                <Typography
+                  sx={{
+                    fontSize: 10,
+                    color: d ? "rgba(255,255,255,0.5)" : "rgba(0,0,0,0.55)",
+                    mt: 0.2,
+                  }}
+                >
                   {p.tag}
                 </Typography>
               </Box>
-              <Typography sx={{ fontSize: 14, color: "rgba(0,0,0,0.4)" }}>→</Typography>
+              <Typography
+                sx={{ fontSize: 14, color: d ? "rgba(255,255,255,0.4)" : "rgba(0,0,0,0.4)" }}
+              >
+                →
+              </Typography>
             </Box>
           </motion.div>
         ))}
