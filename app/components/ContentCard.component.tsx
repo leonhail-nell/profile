@@ -8,9 +8,11 @@ import Typography from "@mui/material/Typography";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { ProfileSlides } from "../constant/profile";
+import { getShadows } from "../constant/shadows";
 
 export const ContentCard = ({ isDark = false }: { isDark?: boolean }) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const sh = getShadows(isDark);
 
   return (
     <motion.div
@@ -28,9 +30,7 @@ export const ContentCard = ({ isDark = false }: { isDark?: boolean }) => {
             : "1px solid rgba(255,255,255,0.7)",
           borderRadius: { xs: 4, md: 5 },
           p: { xs: 2.5, md: 3.5 },
-          boxShadow: isDark
-            ? "0 20px 50px -20px rgba(0,0,0,0.5), 0 8px 24px -12px rgba(0,0,0,0.3)"
-            : "0 20px 50px -20px rgba(0,0,0,0.15), 0 8px 24px -12px rgba(0,0,0,0.08)",
+          boxShadow: sh.panel,
           transition: "background 0.4s ease, border-color 0.4s ease",
         }}
       >
@@ -85,9 +85,7 @@ export const ContentCard = ({ isDark = false }: { isDark?: boolean }) => {
             fontWeight: 400,
           }}
         >
-          Experienced Web Developer with a demonstrated history of working in
-          the computer software industry. Skilled in Vue.js, React.js,
-          Typescript, Computer Literacy, PHP, HTML, and Laravel.
+          Experienced Web Developer with a demonstrated history of working in the computer software industry. Skilled in Vue.js, React.js, Computer Literacy, PHP, HTML, and Laravel. Strong engineering professional with a bachelor of science in information technology focused in Computer Programming.
         </Typography>
 
         {/* Tab navigation */}

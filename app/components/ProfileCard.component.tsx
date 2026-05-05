@@ -8,9 +8,11 @@ import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import { getShadows } from "../constant/shadows";
 
 export const ProfileCard = ({ isDark = false }: { isDark?: boolean }) => {
   const [liked, setLiked] = useState(false);
+  const sh = getShadows(isDark);
 
   return (
     <motion.div
@@ -26,9 +28,7 @@ export const ProfileCard = ({ isDark = false }: { isDark?: boolean }) => {
           maxHeight: { md: 640 },
           borderRadius: { xs: 4, md: 5 },
           overflow: "hidden",
-          boxShadow: isDark
-            ? "0 30px 60px -20px rgba(0,0,0,0.6), 0 18px 36px -18px rgba(0,0,0,0.5)"
-            : "0 30px 60px -20px rgba(0,0,0,0.25), 0 18px 36px -18px rgba(0,0,0,0.18)",
+          boxShadow: sh.card,
         }}
       >
         {/* Crossfade between default and liked photo */}
