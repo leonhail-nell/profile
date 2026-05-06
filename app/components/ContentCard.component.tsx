@@ -85,7 +85,11 @@ export const ContentCard = ({ isDark = false }: { isDark?: boolean }) => {
             fontWeight: 400,
           }}
         >
-          Experienced Web Developer with a demonstrated history of working in the computer software industry. Skilled in Vue.js, React.js, Computer Literacy, PHP, HTML, and Laravel. Strong engineering professional with a bachelor of science in information technology focused in Computer Programming.
+          Experienced Web Developer with a demonstrated history of working in
+          the computer software industry. Skilled in Vue.js, React.js, Computer
+          Literacy, PHP, HTML, and Laravel. Strong engineering professional with
+          a bachelor of science in information technology focused in Computer
+          Programming.
         </Typography>
 
         {/* Tab navigation */}
@@ -181,9 +185,15 @@ export const ContentCard = ({ isDark = false }: { isDark?: boolean }) => {
           </Typography>
           <Box sx={{ display: "flex", gap: 0.6 }}>
             {[
-              { Icon: GitHubIcon, href: "https://github.com" },
-              { Icon: LinkedInIcon, href: "https://linkedin.com" },
-              { Icon: TwitterIcon, href: "https://twitter.com" },
+              { Icon: GitHubIcon, href: "https://github.com/leonhail-nell" },
+              {
+                Icon: LinkedInIcon,
+                href: "https://www.linkedin.com/in/leonhail-paypa-97a95918b/",
+              },
+              {
+                Icon: TwitterIcon,
+                href: "https://v2.onlinejobs.ph/jobseekers/info/1499234",
+              },
             ].map(({ Icon, href }) => (
               <IconButton
                 key={href}
