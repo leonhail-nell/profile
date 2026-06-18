@@ -19,10 +19,10 @@ export const personal = {
 
 // ─── Stats ────────────────────────────────────────────────────────────────────
 export const stats = [
-  { value: "7+",  label: "Years Exp." },
+  { value: "7+", label: "Years Exp." },
   { value: "15+", label: "Projects" },
-  { value: "2",   label: "Countries" },
-  { value: "1",   label: "npm Package" },
+  { value: "2", label: "Countries" },
+  { value: "1", label: "npm Package" },
 ];
 
 // ─── Skills ───────────────────────────────────────────────────────────────────
@@ -188,7 +188,15 @@ export const experience: Experience[] = [
     period: "Jan 2022 — Apr 2026",
     description:
       "Led frontend development of Nodifi, a full-scale online business platform serving Australian clients — building complex multi-step forms, dynamic dashboards, and third-party API integrations. Architected reusable component libraries with TypeScript and Tailwind CSS, cutting feature development time by ~30%. Integrated AI capabilities using Claude and OpenAI APIs — automated document analysis, smart form suggestions, and AI-assisted workflows.",
-    tech: ["Vue.js", "Nuxt.js", "Inertia.js", "Laravel", "TypeScript", "Tailwind CSS", "Claude API"],
+    tech: [
+      "Vue.js",
+      "Nuxt.js",
+      "Inertia.js",
+      "Laravel",
+      "TypeScript",
+      "Tailwind CSS",
+      "Claude API",
+    ],
   },
   {
     role: "Frontend Web Developer",
@@ -242,6 +250,7 @@ export const projects: Project[] = [
     description:
       "AI-powered Bisaya-English language translator leveraging Claude and OpenAI APIs for natural language processing and contextual translation.",
     color: "#7928ca",
+    photo: "/images/bisalish.png",
     tech: ["Next.js", "Laravel", "Claude API", "OpenAI API"],
     featured: true,
   },
@@ -251,6 +260,7 @@ export const projects: Project[] = [
     description:
       "Full-featured e-commerce marketplace with product management, cart, checkout, and vendor dashboards built for the Philippine market.",
     color: "#22c55e",
+    photo: "/images/pamalengke.png",
     tech: ["Vue.js", "Inertia.js", "Laravel"],
     featured: true,
   },
