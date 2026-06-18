@@ -250,7 +250,7 @@ export const projects: Project[] = [
     description:
       "AI-powered Bisaya-English language translator leveraging Claude and OpenAI APIs for natural language processing and contextual translation.",
     color: "#7928ca",
-    photo: "/images/bisalish.png",
+    photo: "/images/Bisalish.png",
     tech: ["Next.js", "Laravel", "Claude API", "OpenAI API"],
     featured: true,
   },
@@ -260,7 +260,7 @@ export const projects: Project[] = [
     description:
       "Full-featured e-commerce marketplace with product management, cart, checkout, and vendor dashboards built for the Philippine market.",
     color: "#22c55e",
-    photo: "/images/pamalengke.png",
+    photo: "/images/Pamalengke.png",
     tech: ["Vue.js", "Inertia.js", "Laravel"],
     featured: true,
   },
