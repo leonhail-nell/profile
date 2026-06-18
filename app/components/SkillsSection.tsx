@@ -4,7 +4,7 @@ import { useState } from "react";
 import { skills, type Skill } from "../constant/data";
 import SectionHeader from "./SectionHeader";
 
-const CATEGORIES = ["All", "Frontend", "Backend", "Tools"] as const;
+const CATEGORIES = ["All", "Frontend", "Backend", "Mobile", "AI"] as const;
 
 function SkillCard({ skill, index }: { skill: Skill; index: number }) {
   const [hovered, setHovered] = useState(false);

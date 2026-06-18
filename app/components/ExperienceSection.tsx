@@ -10,7 +10,7 @@ export default function ExperienceSection() {
         <SectionHeader
           eyebrow="Career"
           title="Work Experience"
-          subtitle="Companies and projects that shaped my craft over 6+ years."
+          subtitle="Companies and projects that shaped my craft over 7+ years."
         />
 
         <div style={{ position: "relative", maxWidth: 720, margin: "0 auto" }}>
@@ -65,6 +65,11 @@ export default function ExperienceSection() {
                     <span style={{ fontSize: 13, color: "#00d4ff", fontWeight: 600 }}>
                       {exp.company}
                     </span>
+                    {exp.location && (
+                      <div style={{ fontSize: 11, color: "rgba(232,234,255,0.35)", marginTop: 2 }}>
+                        {exp.location}
+                      </div>
+                    )}
                   </div>
                   <span style={{
                     fontSize: 11, fontWeight: 600, letterSpacing: 0.5,
