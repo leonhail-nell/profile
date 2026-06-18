@@ -33,7 +33,7 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: "#00d4ff", marginBottom: 16 }}
+          style={{ fontSize: 11, fontWeight: 700, letterSpacing: 3, color: "var(--cyan)", marginBottom: 16 }}
         >
           GET IN TOUCH
         </motion.p>
@@ -46,12 +46,12 @@ export default function ContactSection() {
           style={{
             fontSize: "clamp(36px, 6vw, 64px)",
             fontWeight: 900, letterSpacing: -2, lineHeight: 1.05,
-            background: "linear-gradient(135deg, #e8eaff 0%, rgba(232,234,255,0.6) 100%)",
+            background: "linear-gradient(135deg, var(--heading-from) 0%, var(--heading-to) 100%)",
             WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
             backgroundClip: "text", marginBottom: 20,
           }}
         >
-          Let's Build<br />Something Great
+          Let&apos;s Build<br />Something Great
         </motion.h2>
 
         <motion.p
@@ -59,10 +59,10 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          style={{ fontSize: 16, color: "rgba(232,234,255,0.5)", lineHeight: 1.7, marginBottom: 48 }}
+          style={{ fontSize: 16, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 48 }}
         >
-          I'm currently available for freelance work and full-time opportunities.
-          If you have a project in mind, I'd love to hear about it.
+          I&apos;m currently available for freelance work and full-time opportunities.
+          If you have a project in mind, I&apos;d love to hear about it.
         </motion.p>
 
         {/* Email copy button */}
@@ -77,17 +77,13 @@ export default function ContactSection() {
           style={{
             display: "inline-flex", alignItems: "center", gap: 10,
             padding: "14px 32px", borderRadius: 12,
-            background: copied
-              ? "rgba(62,207,142,0.15)"
-              : "rgba(0,212,255,0.08)",
-            border: `1px solid ${copied ? "rgba(62,207,142,0.3)" : "rgba(0,212,255,0.25)"}`,
-            color: copied ? "#3ecf8e" : "#00d4ff",
+            background: copied ? "rgba(62,207,142,0.15)" : "var(--cyan-bg)",
+            border: `1px solid ${copied ? "rgba(62,207,142,0.3)" : "var(--border-glow)"}`,
+            color: copied ? "#3ecf8e" : "var(--cyan)",
             fontSize: 15, fontWeight: 700, cursor: "pointer",
             transition: "all 0.2s",
             marginBottom: 40,
-            boxShadow: copied
-              ? "0 0 20px rgba(62,207,142,0.15)"
-              : "0 0 20px rgba(0,212,255,0.1)",
+            boxShadow: copied ? "0 0 20px rgba(62,207,142,0.15)" : "0 0 20px var(--cyan-bg)",
           }}
         >
           {copied ? "✓ Copied!" : personal.email}
@@ -112,16 +108,16 @@ export default function ContactSection() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ y: -3, color: "#00d4ff" }}
+              whileHover={{ y: -3, color: "var(--cyan)" }}
               style={{
                 fontSize: 13, fontWeight: 600,
-                color: "rgba(232,234,255,0.4)",
+                color: "var(--text-dim)",
                 textDecoration: "none",
                 transition: "color 0.2s",
                 padding: "8px 16px",
-                border: "1px solid rgba(255,255,255,0.06)",
+                border: "1px solid var(--border)",
                 borderRadius: 8,
-                background: "rgba(255,255,255,0.02)",
+                background: "var(--surface)",
               }}
             >
               {label}
@@ -138,7 +134,7 @@ export default function ContactSection() {
         transition={{ delay: 0.3 }}
         style={{
           marginTop: 80, fontSize: 12,
-          color: "rgba(232,234,255,0.2)",
+          color: "var(--text-dim)",
           letterSpacing: 0.5,
         }}
       >

@@ -29,7 +29,7 @@ export default function HeroSection() {
         <div style={{
           position: "absolute", top: "20%", right: "5%",
           width: 400, height: 400, borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(0,212,255,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(circle, var(--cyan-bg) 0%, transparent 70%)",
           filter: "blur(40px)",
         }} />
       </div>
@@ -76,7 +76,7 @@ export default function HeroSection() {
             fontWeight: 900,
             letterSpacing: -2,
             lineHeight: 1.05,
-            color: "#e8eaff",
+            color: "var(--text)",
             marginBottom: 16,
           }}>
             {personal.name}
@@ -93,7 +93,7 @@ export default function HeroSection() {
 
           <p style={{
             fontSize: 16,
-            color: "rgba(232,234,255,0.55)",
+            color: "var(--text-muted)",
             lineHeight: 1.7,
             marginBottom: 36,
             maxWidth: 480,
@@ -126,9 +126,9 @@ export default function HeroSection() {
               style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 padding: "12px 28px", borderRadius: 8,
-                background: "transparent",
-                border: "1px solid rgba(255,255,255,0.12)",
-                color: "#e8eaff", fontWeight: 700, fontSize: 14,
+                background: "var(--surface)",
+                border: "1px solid var(--border-hover)",
+                color: "var(--text)", fontWeight: 700, fontSize: 14,
                 textDecoration: "none",
                 backdropFilter: "blur(10px)",
               }}
@@ -146,10 +146,10 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 + i * 0.08 }}
               >
-                <div style={{ fontSize: 28, fontWeight: 800, color: "#00d4ff", lineHeight: 1 }}>
+                <div style={{ fontSize: 28, fontWeight: 800, color: "var(--cyan)", lineHeight: 1 }}>
                   {s.value}
                 </div>
-                <div style={{ fontSize: 11, color: "rgba(232,234,255,0.45)", marginTop: 4, letterSpacing: 0.5 }}>
+                <div style={{ fontSize: 11, color: "var(--text-dim)", marginTop: 4, letterSpacing: 0.5 }}>
                   {s.label}
                 </div>
               </motion.div>
@@ -172,8 +172,8 @@ export default function HeroSection() {
               aspectRatio: "3 / 4",
               borderRadius: 24,
               overflow: "hidden",
-              border: "1px solid rgba(0,212,255,0.15)",
-              boxShadow: "0 0 0 1px rgba(0,212,255,0.08), 0 40px 80px -20px rgba(0,0,0,0.8), 0 0 60px rgba(0,212,255,0.06)",
+              border: "1px solid var(--border-glow-subtle)",
+              boxShadow: "0 0 0 1px var(--border-glow-subtle), 0 40px 80px -20px rgba(0,0,0,0.8), 0 0 60px var(--cyan-bg)",
             }}>
               <Image
                 src="/profile.jpg"
@@ -183,7 +183,7 @@ export default function HeroSection() {
                 sizes="(max-width: 600px) 90vw, 400px"
                 style={{ objectFit: "cover", objectPosition: "55% 25%", transform: "scale(1.12)" }}
               />
-              {/* Overlay gradient */}
+              {/* Overlay gradient — always dark for photo legibility */}
               <div style={{
                 position: "absolute", inset: 0,
                 background: "linear-gradient(180deg, transparent 40%, rgba(2,2,10,0.85) 100%)",
@@ -197,15 +197,15 @@ export default function HeroSection() {
                   {personal.name}
                 </div>
                 <div style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", letterSpacing: 0.5 }}>
-                  Software Engineer · Designer
+                  Frontend · Fullstack · AI
                 </div>
               </div>
               {/* Cyan corner accent */}
               <div style={{
                 position: "absolute", top: 16, right: 16,
                 width: 8, height: 8, borderRadius: "50%",
-                background: "#00d4ff",
-                boxShadow: "0 0 0 4px rgba(0,212,255,0.2), 0 0 16px rgba(0,212,255,0.6)",
+                background: "var(--cyan)",
+                boxShadow: "0 0 0 4px var(--cyan-bg), 0 0 16px var(--cyan)",
               }} />
             </div>
           </TiltCard>
@@ -220,13 +220,13 @@ export default function HeroSection() {
           position: "absolute", bottom: 32, left: "50%",
           transform: "translateX(-50%)",
           display: "flex", flexDirection: "column", alignItems: "center", gap: 6,
-          color: "rgba(232,234,255,0.3)", fontSize: 11, letterSpacing: 2,
+          color: "var(--text-dim)", fontSize: 11, letterSpacing: 2,
         }}
       >
         <span>SCROLL</span>
         <div style={{
           width: 1, height: 40,
-          background: "linear-gradient(to bottom, rgba(0,212,255,0.5), transparent)",
+          background: "linear-gradient(to bottom, var(--cyan), transparent)",
         }} />
       </motion.div>
     </section>

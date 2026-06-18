@@ -19,13 +19,13 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
       onHoverEnd={() => setHovered(false)}
       whileHover={{ y: -4, scale: 1.02 }}
       style={{
-        background: hovered ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.03)",
-        border: `1px solid ${hovered ? "rgba(0,212,255,0.25)" : "rgba(255,255,255,0.06)"}`,
+        background: hovered ? "var(--surface-hover)" : "var(--surface)",
+        border: `1px solid ${hovered ? "var(--border-glow-subtle)" : "var(--border)"}`,
         borderRadius: 16,
         padding: "20px 16px",
         cursor: "default",
         transition: "background 0.2s, border-color 0.2s",
-        boxShadow: hovered ? "0 0 20px rgba(0,212,255,0.08)" : "none",
+        boxShadow: hovered ? "0 0 20px var(--cyan-bg)" : "none",
       }}
     >
       {/* Icon */}
@@ -38,12 +38,12 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
           height={32}
           style={{ filter: skill.invertOnDark ? "invert(1)" : "none", flexShrink: 0 }}
         />
-        <span style={{ fontSize: 13, fontWeight: 700, color: "#e8eaff" }}>{skill.name}</span>
+        <span style={{ fontSize: 13, fontWeight: 700, color: "var(--text)" }}>{skill.name}</span>
       </div>
 
       {/* Progress bar */}
       <div style={{
-        height: 3, background: "rgba(255,255,255,0.06)",
+        height: 3, background: "var(--border)",
         borderRadius: 2, overflow: "hidden",
       }}>
         <motion.div
@@ -53,12 +53,12 @@ function SkillCard({ skill, index }: { skill: Skill; index: number }) {
           transition={{ duration: 0.9, delay: index * 0.05 + 0.2, ease: "easeOut" }}
           style={{
             height: "100%",
-            background: "linear-gradient(90deg, #00d4ff, #7928ca)",
+            background: "linear-gradient(90deg, var(--cyan), var(--purple))",
             borderRadius: 2,
           }}
         />
       </div>
-      <div style={{ fontSize: 10, color: "rgba(232,234,255,0.35)", marginTop: 6, textAlign: "right" }}>
+      <div style={{ fontSize: 10, color: "var(--text-dim)", marginTop: 6, textAlign: "right" }}>
         {skill.level}%
       </div>
     </motion.div>
@@ -76,7 +76,7 @@ export default function SkillsSection() {
     <section style={{
       position: "relative", zIndex: 2,
       padding: "100px 24px",
-      background: "linear-gradient(180deg, transparent, rgba(4,4,14,0.6) 20%, rgba(4,4,14,0.6) 80%, transparent)",
+      background: `linear-gradient(180deg, transparent, var(--section-overlay) 20%, var(--section-overlay) 80%, transparent)`,
     }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <SectionHeader
@@ -102,9 +102,9 @@ export default function SkillsSection() {
               style={{
                 padding: "8px 20px", borderRadius: 999,
                 fontSize: 12, fontWeight: 600,
-                border: `1px solid ${active === cat ? "rgba(0,212,255,0.5)" : "rgba(255,255,255,0.08)"}`,
-                background: active === cat ? "rgba(0,212,255,0.1)" : "transparent",
-                color: active === cat ? "#00d4ff" : "rgba(232,234,255,0.5)",
+                border: `1px solid ${active === cat ? "var(--border-glow)" : "var(--border-hover)"}`,
+                background: active === cat ? "var(--cyan-subtle)" : "transparent",
+                color: active === cat ? "var(--cyan)" : "var(--text-muted)",
                 cursor: "pointer",
                 transition: "all 0.2s",
               }}

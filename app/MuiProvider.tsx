@@ -1,7 +1,7 @@
 "use client";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ColorModeContext } from "./ThemeContext";
 
 export default function MuiProvider({
@@ -9,7 +9,12 @@ export default function MuiProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [mode, setMode] = useState<"light" | "dark">("light");
+  const [mode, setMode] = useState<"light" | "dark">("dark");
+
+  // Sync data-theme attribute on <html> so CSS vars switch
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", mode);
+  }, [mode]);
 
   const colorMode = useMemo(
     () => ({
@@ -25,14 +30,14 @@ export default function MuiProvider({
       createTheme({
         palette: {
           mode,
-          primary: { main: mode === "light" ? "#1a1a1a" : "#e8e3db" },
+          primary: { main: mode === "dark" ? "#00d4ff" : "#0077aa" },
           background: {
-            default: mode === "light" ? "#f0ede8" : "#0d0c0b",
-            paper: mode === "light" ? "#ffffff" : "#1c1b19",
+            default: mode === "dark" ? "#02020a" : "#f0f4ff",
+            paper: mode === "dark" ? "#04040e" : "#ffffff",
           },
         },
         typography: { fontFamily: "inherit" },
-        shape: { borderRadius: 4 },
+        shape: { borderRadius: 8 },
       }),
     [mode]
   );

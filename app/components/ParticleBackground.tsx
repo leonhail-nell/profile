@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { useColorMode } from "../ThemeContext";
 
 interface Particle {
   x: number;
@@ -12,12 +13,19 @@ interface Particle {
 
 export default function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { mode } = useColorMode();
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    // Particle color based on theme
+    const isDark = mode === "dark";
+    const r = isDark ? 0 : 0;
+    const g = isDark ? 212 : 100;
+    const b = isDark ? 255 : 180;
 
     let animId: number;
     let particles: Particle[] = [];
@@ -50,9 +58,9 @@ export default function ParticleBackground() {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < CONNECT_DIST) {
-            const alpha = 0.12 * (1 - dist / CONNECT_DIST);
+            const alpha = (isDark ? 0.12 : 0.08) * (1 - dist / CONNECT_DIST);
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(0, 212, 255, ${alpha})`;
+            ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -65,7 +73,7 @@ export default function ParticleBackground() {
       particles.forEach((p) => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 212, 255, ${p.opacity})`;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${p.opacity * (isDark ? 1 : 0.7)})`;
         ctx.fill();
 
         p.x += p.vx;
@@ -89,7 +97,7 @@ export default function ParticleBackground() {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [mode]); // re-init when theme changes
 
   return (
     <canvas

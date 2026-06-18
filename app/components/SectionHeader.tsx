@@ -22,7 +22,7 @@ export default function SectionHeader({ eyebrow, title, subtitle }: Props) {
           fontSize: 11,
           fontWeight: 700,
           letterSpacing: 3,
-          color: "#00d4ff",
+          color: "var(--cyan)",
           marginBottom: 12,
           textTransform: "uppercase",
         }}
@@ -35,7 +35,7 @@ export default function SectionHeader({ eyebrow, title, subtitle }: Props) {
           fontWeight: 800,
           letterSpacing: -1,
           lineHeight: 1.1,
-          background: "linear-gradient(135deg, #e8eaff 0%, rgba(232,234,255,0.65) 100%)",
+          background: "linear-gradient(135deg, var(--heading-from) 0%, var(--heading-to) 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
           backgroundClip: "text",
@@ -48,7 +48,7 @@ export default function SectionHeader({ eyebrow, title, subtitle }: Props) {
         <p
           style={{
             fontSize: 16,
-            color: "rgba(232,234,255,0.5)",
+            color: "var(--text-muted)",
             maxWidth: 520,
             margin: "0 auto",
             lineHeight: 1.6,

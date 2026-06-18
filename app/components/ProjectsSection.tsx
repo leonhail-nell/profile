@@ -17,13 +17,13 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
       onHoverEnd={() => setHovered(false)}
       onClick={() => onOpen(project)}
       style={{
-        background: hovered ? "rgba(255,255,255,0.05)" : "rgba(255,255,255,0.02)",
-        border: `1px solid ${hovered ? "rgba(0,212,255,0.2)" : "rgba(255,255,255,0.06)"}`,
+        background: hovered ? "var(--surface-hover)" : "var(--surface)",
+        border: `1px solid ${hovered ? "var(--border-glow-subtle)" : "var(--border)"}`,
         borderRadius: 20,
         overflow: "hidden",
         cursor: "pointer",
         transition: "background 0.25s, border-color 0.25s",
-        boxShadow: hovered ? "0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(0,212,255,0.05)" : "0 10px 40px rgba(0,0,0,0.3)",
+        boxShadow: hovered ? "0 20px 60px rgba(0,0,0,0.3), 0 0 30px var(--cyan-bg)" : "0 10px 40px rgba(0,0,0,0.15)",
       }}
     >
       {/* Preview area */}
@@ -63,7 +63,7 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
             position: "absolute", inset: 0,
             background: "rgba(2,2,10,0.5)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 13, fontWeight: 700, color: "#00d4ff", letterSpacing: 1.5,
+            fontSize: 13, fontWeight: 700, color: "var(--cyan)", letterSpacing: 1.5,
           }}
         >
           VIEW PROJECT →
@@ -73,7 +73,7 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
       {/* Info */}
       <div style={{ padding: "20px 24px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 8 }}>
-          <h3 style={{ fontSize: 18, fontWeight: 700, color: "#e8eaff" }}>{project.title}</h3>
+          <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)" }}>{project.title}</h3>
           <span style={{
             fontSize: 10, fontWeight: 700, letterSpacing: 1,
             color: project.color,
@@ -84,7 +84,7 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
             {project.tag}
           </span>
         </div>
-        <p style={{ fontSize: 13, color: "rgba(232,234,255,0.5)", lineHeight: 1.6, marginBottom: 16 }}>
+        <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6, marginBottom: 16 }}>
           {project.description}
         </p>
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
@@ -92,9 +92,9 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
             <span key={t} style={{
               fontSize: 10, fontWeight: 600,
               padding: "2px 8px", borderRadius: 999,
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
-              color: "rgba(232,234,255,0.5)",
+              background: "var(--surface-hover)",
+              border: "1px solid var(--border-hover)",
+              color: "var(--text-muted)",
             }}>
               {t}
             </span>
@@ -105,7 +105,6 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
   );
 }
 
-// Inline lightweight modal (keeps it self-contained)
 function Modal({ project, onClose }: { project: Project; onClose: () => void }) {
   return (
     <motion.div
@@ -129,11 +128,11 @@ function Modal({ project, onClose }: { project: Project; onClose: () => void }) 
         onClick={(e) => e.stopPropagation()}
         style={{
           background: "rgba(8,8,20,0.98)",
-          border: "1px solid rgba(0,212,255,0.15)",
+          border: "1px solid var(--border-glow-subtle)",
           borderRadius: 20,
           overflow: "hidden",
           width: "100%", maxWidth: 780,
-          boxShadow: "0 40px 80px rgba(0,0,0,0.8), 0 0 40px rgba(0,212,255,0.05)",
+          boxShadow: "0 40px 80px rgba(0,0,0,0.8), 0 0 40px var(--cyan-bg)",
         }}
       >
         {/* Header */}
@@ -204,7 +203,7 @@ export default function ProjectsSection() {
     <section style={{
       position: "relative", zIndex: 2,
       padding: "100px 24px",
-      background: "linear-gradient(180deg, transparent, rgba(4,4,14,0.5) 20%, rgba(4,4,14,0.5) 80%, transparent)",
+      background: "linear-gradient(180deg, transparent, var(--section-overlay) 20%, var(--section-overlay) 80%, transparent)",
     }}>
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <SectionHeader

@@ -18,7 +18,7 @@ export default function ExperienceSection() {
           <div style={{
             position: "absolute", left: 15, top: 8, bottom: 8,
             width: 1,
-            background: "linear-gradient(to bottom, rgba(0,212,255,0.5), rgba(121,40,202,0.3), transparent)",
+            background: `linear-gradient(to bottom, var(--timeline-line), rgba(121,40,202,0.3), transparent)`,
           }} />
 
           {experience.map((exp, i) => (
@@ -37,14 +37,14 @@ export default function ExperienceSection() {
               <div style={{ flexShrink: 0, marginTop: 4 }}>
                 <div style={{
                   width: 30, height: 30, borderRadius: "50%",
-                  background: "rgba(0,212,255,0.1)",
-                  border: "1px solid rgba(0,212,255,0.4)",
+                  background: "var(--cyan-subtle)",
+                  border: "1px solid var(--border-glow)",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  boxShadow: "0 0 12px rgba(0,212,255,0.2)",
+                  boxShadow: "0 0 12px var(--cyan-bg)",
                 }}>
                   <div style={{
                     width: 8, height: 8, borderRadius: "50%",
-                    background: "#00d4ff",
+                    background: "var(--cyan)",
                   }} />
                 </div>
               </div>
@@ -52,30 +52,30 @@ export default function ExperienceSection() {
               {/* Content */}
               <div style={{
                 flex: 1,
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.06)",
+                background: "var(--surface)",
+                border: "1px solid var(--border)",
                 borderRadius: 16,
                 padding: "24px 28px",
               }}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8, marginBottom: 8 }}>
                   <div>
-                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "#e8eaff", marginBottom: 2 }}>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--text)", marginBottom: 2 }}>
                       {exp.role}
                     </h3>
-                    <span style={{ fontSize: 13, color: "#00d4ff", fontWeight: 600 }}>
+                    <span style={{ fontSize: 13, color: "var(--cyan)", fontWeight: 600 }}>
                       {exp.company}
                     </span>
                     {exp.location && (
-                      <div style={{ fontSize: 11, color: "rgba(232,234,255,0.35)", marginTop: 2 }}>
+                      <div style={{ fontSize: 11, color: "var(--text-dim)", marginTop: 2 }}>
                         {exp.location}
                       </div>
                     )}
                   </div>
                   <span style={{
                     fontSize: 11, fontWeight: 600, letterSpacing: 0.5,
-                    color: "rgba(232,234,255,0.4)",
-                    background: "rgba(255,255,255,0.04)",
-                    border: "1px solid rgba(255,255,255,0.06)",
+                    color: "var(--text-dim)",
+                    background: "var(--surface-hover)",
+                    border: "1px solid var(--border)",
                     padding: "4px 12px", borderRadius: 999,
                     whiteSpace: "nowrap",
                   }}>
@@ -83,7 +83,7 @@ export default function ExperienceSection() {
                   </span>
                 </div>
 
-                <p style={{ fontSize: 14, color: "rgba(232,234,255,0.55)", lineHeight: 1.7, marginBottom: 16 }}>
+                <p style={{ fontSize: 14, color: "var(--text-muted)", lineHeight: 1.7, marginBottom: 16 }}>
                   {exp.description}
                 </p>
 
@@ -94,9 +94,9 @@ export default function ExperienceSection() {
                       style={{
                         fontSize: 11, fontWeight: 600,
                         padding: "3px 10px", borderRadius: 999,
-                        background: "rgba(0,212,255,0.07)",
-                        border: "1px solid rgba(0,212,255,0.15)",
-                        color: "rgba(0,212,255,0.9)",
+                        background: "var(--cyan-bg)",
+                        border: "1px solid var(--border-glow-subtle)",
+                        color: "var(--cyan)",
                       }}
                     >
                       {t}

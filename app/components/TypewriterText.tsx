@@ -36,12 +36,12 @@ export default function TypewriterText() {
   }, [displayed, deleting, index, titles]);
 
   return (
-    <span style={{ color: "#00d4ff" }}>
+    <span style={{ color: "var(--cyan)" }}>
       {displayed}
       <motion.span
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
-        style={{ color: "#00d4ff", marginLeft: 1 }}
+        style={{ color: "var(--cyan)", marginLeft: 1 }}
       >
         |
       </motion.span>
