@@ -284,6 +284,7 @@ export const projects: Project[] = [
     description:
       "Published npm package (v0.4.0) — a drop-in wrapper for Claude, OpenAI, and Gemini SDKs that measures cache hit rates, surfaces real dollar savings, and auto-places cache_control breakpoints.",
     color: "#00d4ff",
+    photo: "/images/pco.png",
     github: "https://github.com/leonhail-nell/prompt-cache-optimizer",
     web: "https://npmjs.com/package/prompt-cache-optimizer",
     tech: ["TypeScript", "Node.js", "Claude API", "OpenAI API", "Gemini API"],
