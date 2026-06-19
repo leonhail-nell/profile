@@ -275,6 +275,7 @@ export const projects: Project[] = [
       "A React Native flight search and booking assistant powered by AI. Supports real-time fare comparison, price history, and smart itinerary suggestions.",
     color: "#c8b9ac",
     video: "/videos/TaraFlight.mp4",
+    photo: "/images/taraflight.png",
     tech: ["React Native", "Expo", "Supabase", "Claude AI"],
     featured: true,
   },
@@ -296,6 +297,7 @@ export const projects: Project[] = [
     description:
       "Full-featured e-commerce platform with product management, cart, checkout, and an admin dashboard for inventory and orders.",
     color: "#B8202E",
+    photo: "/images/fujishops.png",
     github: "https://github.com/leonhail-nell/fujiShops",
     video: "/videos/fujishops-demo-new.mp4",
     tech: ["Vue.js", "Inertia.js", "Laravel", "MySQL", "Tailwind CSS"],
