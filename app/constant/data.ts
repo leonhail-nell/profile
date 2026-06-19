@@ -252,6 +252,8 @@ export const projects: Project[] = [
     color: "#7928ca",
     photo: "/images/BisaLish.png",
     tech: ["Next.js", "Laravel", "Claude API", "OpenAI API"],
+    github: "https://github.com/leonhail-nell/BisaLish",
+    web: "https://bisa-lish.vercel.app",
     featured: true,
   },
   {
