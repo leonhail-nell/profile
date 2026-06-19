@@ -279,15 +279,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    title: "Onlineloans",
-    tag: "Asset Finance",
-    description:
-      "Asset finance application for the Australian market with multi-step loan flows and broker dashboards serving clients across Australia.",
-    color: "#f59e0b",
-    tech: ["Vue.js", "Nuxt.js", "Laravel", "MySQL"],
-    featured: false,
-  },
-  {
     title: "prompt-cache-optimizer",
     tag: "Open Source · npm",
     description:
