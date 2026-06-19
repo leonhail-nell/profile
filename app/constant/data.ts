@@ -261,7 +261,9 @@ export const projects: Project[] = [
       "Full-featured e-commerce marketplace with product management, cart, checkout, and vendor dashboards built for the Philippine market.",
     color: "#22c55e",
     photo: "/images/Pamalengke.png",
-    tech: ["Vue.js", "Inertia.js", "Laravel"],
+    tech: ["Nuxt.js", "Laravel"],
+    github: "https://github.com/leonhail-nell/pamalengke",
+    web: "https://pamalengke.vercel.app",
     featured: true,
   },
   {
