@@ -9,7 +9,7 @@ export const personal = {
     "Open Source Author",
   ],
   bio: "7+ years building high-performance web apps for international clients in Australia and the Philippines. Deep expertise in Vue.js, Nuxt.js, Next.js, TypeScript, and Laravel — shipping production-grade SaaS, fintech, e-commerce, and AI-powered products. Published npm package author. Remote-first, detail-obsessed.",
-  email: "leonhaipaypa27@gmail.com",
+  email: "leonhail.paypa.dev@gmail.com",
   github: "https://github.com/leonhail-nell",
   linkedin: "https://linkedin.com/in/leonhail-paypa",
   twitter: "https://twitter.com/leonhail",
