@@ -85,6 +85,18 @@ export const skills: Skill[] = [
     level: 98,
     category: "Frontend",
   },
+  {
+    name: "Material UI",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg",
+    level: 88,
+    category: "Frontend",
+  },
+  {
+    name: "Vuetify",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuetify/vuetify-original.svg",
+    level: 85,
+    category: "Frontend",
+  },
 
   // ── Backend ───────────────────────────────────────────────────────────────
   {
